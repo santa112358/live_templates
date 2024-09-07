@@ -1,5 +1,5 @@
 <templateSet group="Dart">
-  <template name="todo" value="// TODO(mono): " description="" toReformat="false" toShortenFQNames="true">
+  <template name="todo" value="// TODO(santa): " description="" toReformat="false" toShortenFQNames="true">
     <context>
       <option name="DART" value="true" />
     </context>
