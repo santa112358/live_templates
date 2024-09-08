@@ -37,11 +37,6 @@
       <option name="DART_STATEMENT" value="true" />
     </context>
   </template>
-  <template name="txtthm" value="final textTheme = Theme.of(context).textTheme;" description="textTheme" toReformat="true" toShortenFQNames="true">
-    <context>
-      <option name="DART_STATEMENT" value="true" />
-    </context>
-  </template>
   <template name="thm" value="final theme = Theme.of(context);" description="theme" toReformat="true" toShortenFQNames="true">
     <context>
       <option name="DART_STATEMENT" value="true" />
@@ -60,14 +55,7 @@
       <option name="DART_TOPLEVEL" value="true" />
     </context>
   </template>
-  <template name="wrapped" value="static Widget wrapped() {&#10;  return StateNotifierProvider&lt;$NAME$Controller, $NAME$State&gt;(&#10;    create: (context) =&gt; $NAME$Controller(),&#10;    child: const $NAME$._(),&#10;  );&#10;}" description="" toReformat="false" toShortenFQNames="true">
-    <variable name="NAME" expression="capitalize(camelCase(fileNameWithoutExtension()))" defaultValue="" alwaysStopAt="false" />
-    <context>
-      <option name="DART" value="true" />
-      <option name="DART_STATEMENT" value="false" />
-    </context>
-  </template>
-  <template name="hkwdt" value="class $NAME$ extends HookWidget {&#10;  const $NAME$({ Key? key }): super(key: key);&#10;  @override&#10;  Widget build(BuildContext context) {&#10;    return Container($END$);&#10;  }&#10;}&#10;" description="New Hook widget" toReformat="false" toShortenFQNames="true">
+  <template name="hkwdt" value="import 'package:flutter/material.dart';&#10;import 'package:hooks_riverpod/hooks_riverpod.dart';&#10;&#10;class $NAME$ extends HookConsumerWidget {&#10;  const $NAME$({super.key});&#10;  @override&#10;  Widget build(BuildContext context, WidgetRef ref) {&#10;    return Container($END$);&#10;  }&#10;}&#10;" description="New Hook widget" toReformat="false" toShortenFQNames="true">
     <variable name="NAME" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="DART_TOPLEVEL" value="true" />
@@ -77,6 +65,40 @@
     <variable name="NAME" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="DART_TOPLEVEL" value="true" />
+    </context>
+  </template>
+  <template name="route" value="static Route&lt;void&gt; route(){&#10;    return appRoute(&#10;        widget: const $NAME$(),&#10;    );&#10;}" description="" toReformat="true" toShortenFQNames="true">
+    <variable name="NAME" expression="capitalize(camelCase(fileNameWithoutExtension()))" defaultValue="" alwaysStopAt="false" />
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="repository" value="import 'package:hooks_riverpod/hooks_riverpod.dart';&#10;&#10;final $lowerNAME$RepositoryProvider = Provider((ref) =&gt; $NAME2$Repository());&#10;&#10;class $NAME$Repository {&#10;    $NAME$Repository();&#10;}" description="" toReformat="false" toShortenFQNames="true">
+    <variable name="NAME" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="NAME2" expression="NAME" defaultValue="" alwaysStopAt="false" />
+    <variable name="lowerNAME" expression="camelCase(NAME)" defaultValue="" alwaysStopAt="false" />
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="provider" value="import 'package:hooks_riverpod/hooks_riverpod.dart';&#10;&#10;final $lowerNAME$Provider = Provider.autoDispose((ref) =&gt; $NAME2$());&#10;&#10;class $NAME$ {&#10;    $NAME$();&#10;}" description="" toReformat="false" toShortenFQNames="true">
+    <variable name="NAME" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="NAME2" expression="NAME" defaultValue="" alwaysStopAt="false" />
+    <variable name="lowerNAME" expression="camelCase(NAME)" defaultValue="" alwaysStopAt="false" />
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="screen" value="import 'package:flutter/material.dart';&#10;import 'package:hooks_riverpod/hooks_riverpod.dart';&#10;&#10;class $NAME$ extends HookConsumerWidget {&#10;  const $NAME$({super.key});&#10;  &#10;  static Route&lt;void&gt; route(){&#10;        return appRoute(&#10;            widget: const $NAME$(),&#10;        );&#10;    }&#10;  &#10;  @override&#10;  Widget build(BuildContext context, WidgetRef ref) {&#10;    return Scaffold($END$);&#10;  }&#10;}&#10;" description="" toReformat="false" toShortenFQNames="true">
+    <variable name="NAME" expression="capitalize(camelCase(fileNameWithoutExtension()))" defaultValue="" alwaysStopAt="false" />
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="goroutedata" value="&#10;@TypedGoRoute&lt;$screenName$Route&gt;(&#10;    path: $screenName$.routeName,&#10;)&#10;class $screenName$Route extends FadeRouteData {&#10;    $screenName$Route();&#10;    &#10;    @override&#10;    Widget buildFadePage(BuildContext context, GoRouterState state){&#10;        return $screenName$();&#10;    }&#10;}" description="" toReformat="false" toShortenFQNames="true">
+    <variable name="screenName" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="DART" value="true" />
     </context>
   </template>
 </templateSet>
